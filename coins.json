@@ -1,0 +1,18 @@
+{
+  "updated": "2026-09-14",
+  "note": "One entry per creator on the board. `ca` is empty until a coin is launched and verified on chain; `post` is the X post id whose views count for the week. Nothing here is a number — every number on the site is read live from X, Blockscout and Dexscreener.",
+  "creators": [
+    { "handle": "MrBeast",       "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "KaiCenat",      "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "xQc",           "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "Ninja",         "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "Asmongold",     "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "DrDisrespect",  "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "LudwigAhgren",  "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "Cupseyy",       "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "IShowSpeed",    "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "pokimanelol",   "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "Cristiano",     "ca": "", "post": "", "added": "2026-09-14" },
+    { "handle": "elonmusk",      "ca": "", "post": "", "added": "2026-09-14" }
+  ]
+}

@@ -8,14 +8,15 @@ export default async function handler(req, res) {
   const out = { ca, exists: null, name: null, symbol: null, holders: null, supply: null, price: null, marketCap: null,
     liquidity: null, volume24: null, feeIncome24: null, holderYield: null, chart: null, pair: null, src: [] };
   try {
-    const r = await fetch(`https://robinhoodchain.blockscout.com/api/v2/tokens/${ca}`);
+    const r = await fetch(`https://robinhoodchain.blockscout.com/api/v2/tokens/${ca}`, { headers: { accept: 'application/json', 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36' } });
+    out.bs = r.status;
     if (r.status === 404) out.exists = false;
     if (r.ok) { const j = await r.json(); out.exists = true; out.name = j.name; out.symbol = j.symbol;
       out.holders = j.holders_count != null ? +j.holders_count : (j.holders != null ? +j.holders : null);
       out.supply = j.total_supply && j.decimals ? Number(j.total_supply) / 10 ** Number(j.decimals) : null; out.src.push('blockscout'); }
   } catch (e) {}
   try {
-    const r = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
+    const r = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`, { headers: { accept: 'application/json' } });
     if (r.ok) { const j = await r.json(); const pairs = (j.pairs || []).filter(p => !p.chainId || /robinhood/i.test(p.chainId) || true);
       pairs.sort((a, b) => (b.liquidity?.usd || 0) - (a.liquidity?.usd || 0));
       const p = pairs[0];

@@ -223,8 +223,8 @@ const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');setTim
 const copy=async t=>{try{await navigator.clipboard.writeText(t);toast('Copied')}catch(e){prompt('Copy:',t)}};
 const cache={};
 async function readHandle(h){h=h.replace(/^@/,'');if(cache['h:'+h])return cache['h:'+h];try{const r=await fetch('/api/handle?h='+encodeURIComponent(h));const j=await r.json();cache['h:'+h]=j;return j}catch(e){return {handle:h,exists:null}}}
-async function readCoin(ca){if(cache['c:'+ca])return cache['c:'+ca];let j={ca,exists:null};try{const r=await fetch('/api/coin?ca='+ca);j=await r.json()}catch(e){}
-  if(j.holders==null){try{const r=await fetch('https://robinhoodchain.blockscout.com/api/v2/tokens/'+ca,{headers:{accept:'application/json'}});if(r.ok){const b=await r.json();j.exists=true;j.holders=b.holders_count!=null?+b.holders_count:null;j.name=j.name||b.name;j.symbol=j.symbol||b.symbol}else if(r.status===404&&j.exists!==true)j.exists=false}catch(e){}}
+async function readCoin(ca){if(cache['c:'+ca]&&cache['c:'+ca].holders!=null)return cache['c:'+ca];let j={ca,exists:null};try{const r=await fetch('/api/coin?ca='+ca);j=await r.json()}catch(e){}
+  for(let k=0;k<2&&j.holders==null;k++){try{const r=await fetch('https://robinhoodchain.blockscout.com/api/v2/tokens/'+ca,{headers:{accept:'application/json'}});if(r.ok){const b=await r.json();j.exists=true;j.holders=b.holders_count!=null?+b.holders_count:null;j.name=j.name||b.name;j.symbol=j.symbol||b.symbol}else if(r.status===404&&j.exists!==true)j.exists=false}catch(e){}}
   cache['c:'+ca]=j;return j}
 async function readTweet(id){if(cache['t:'+id])return cache['t:'+id];try{const r=await fetch('/api/tweet?id='+id);const j=await r.json();cache['t:'+id]=j;return j}catch(e){return {id,exists:null}}}
 

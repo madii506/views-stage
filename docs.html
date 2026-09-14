@@ -63,8 +63,9 @@ holderYield    = feeIncome24h × 365 ÷ marketCap   # shown on the board as %</p
 <table><tr><th>route</th><th>source</th><th>returns</th></tr>
 <tr><td><code>/api/handle?h=</code></td><td>FxTwitter → X syndication fallback</td><td>name, followers, verified, avatar, exists</td></tr>
 <tr><td><code>/api/tweet?id=</code></td><td>FxTwitter (views) → syndication fallback</td><td>author, text, views, likes, reposts, url</td></tr>
+<tr><td><code>/api/avatar?h=</code></td><td>FxTwitter → pbs.twimg.com</td><td>the profile image bytes (fallback when a browser blocks X's CDN)</td></tr>
 <tr><td><code>/api/coin?ca=</code></td><td>Blockscout + Dexscreener</td><td>holders, supply, price, mcap, volume24, feeIncome24, holderYield</td></tr></table>
-<div class="try"><input id="t1" value="MrBeast"><button onclick="run('/api/handle?h=',t1,o1)">try /api/handle</button></div><pre class="out" id="o1"></pre>
+<div class="try"><input id="t1" value="Cupseyy"><button onclick="run('/api/handle?h=',t1,o1)">try /api/handle</button></div><pre class="out" id="o1"></pre>
 <div class="try"><input id="t2" placeholder="tweet id or x.com/…/status/… url"><button onclick="run('/api/tweet?id=',t2,o2)">try /api/tweet</button></div><pre class="out" id="o2"></pre>
 <div class="try"><input id="t3" value="0x32fad9f482eb629dc7cb078824763e59441ee076"><button onclick="run('/api/coin?ca=',t3,o3)">try /api/coin</button></div><pre class="out" id="o3"></pre>
 

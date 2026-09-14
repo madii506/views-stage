@@ -1,18 +1,126 @@
 {
-  "updated": "2026-09-14",
-  "note": "One entry per creator on the board. `ca` is empty until a coin is launched and verified on chain; `post` is the X post id whose views count for the week. Nothing here is a number — every number on the site is read live from X, Blockscout and Dexscreener.",
-  "creators": [
-    { "handle": "MrBeast",       "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "KaiCenat",      "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "xQc",           "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "Ninja",         "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "Asmongold",     "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "DrDisrespect",  "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "LudwigAhgren",  "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "Cupseyy",       "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "IShowSpeed",    "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "pokimanelol",   "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "Cristiano",     "ca": "", "post": "", "added": "2026-09-14" },
-    { "handle": "elonmusk",      "ca": "", "post": "", "added": "2026-09-14" }
-  ]
+ "updated": "2026-09-14",
+ "note": "One entry per creator on the board. `ca` is empty until a coin is launched and verified on chain; `post` is the X post id whose views count for the week. Nothing here is a number \u2014 every number on the site is read live from X, Blockscout and Dexscreener.",
+ "creators": [
+  {
+   "handle": "Cupseyy",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "blknoiz06",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "cobie",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "notthreadguy",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "frankdegods",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "Cented7",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "traderpow",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "HsakaTrades",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "inversebrah",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "GiganticRebirth",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "MustStopMurad",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "orangie",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "gainzy222",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "Pentosh1",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "ZssBecker",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "Kookcapitalllc",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "mrpunkdoteth",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "loomdart",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "IcoBeast",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  },
+  {
+   "handle": "zachxbt",
+   "ca": "",
+   "post": "",
+   "added": "2026-09-14"
+  }
+ ]
 }

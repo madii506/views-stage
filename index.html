@@ -38,21 +38,20 @@ section[id]{scroll-margin-top:24px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font:12px/1 JetBrains Mono,monospace;color:var(--acid);letter-spacing:.06em;text-transform:uppercase}
 .eyebrow b{width:8px;height:8px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid);animation:pulse 1.6s infinite}
 @keyframes pulse{50%{opacity:.35}}
-h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(46px,7vw,86px);line-height:.98;letter-spacing:-.01em;margin:18px 0 20px}
+h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(46px,7vw,86px);line-height:.98;letter-spacing:-.01em;margin:0 0 20px}
 h1 em{font-style:italic;color:var(--mint)}
 .lead{font-size:17px;color:var(--mute);max-width:520px;margin:0 0 26px}
 .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.under{font:12px JetBrains Mono,monospace;color:var(--mute);margin-top:14px}
 .cluster{position:relative;height:420px}
 .cluster .av{position:absolute;border-radius:50%;box-shadow:0 0 0 3px rgba(233,255,241,.9),0 0 30px rgba(150,255,180,.35);background:#12251f center/cover;overflow:hidden;transition:transform .3s}
-.cluster .av:hover{transform:scale(1.06)}
 .cluster .av img{width:100%;height:100%;object-fit:cover}
 .cluster .tag{position:absolute;font:12px JetBrains Mono,monospace;background:rgba(6,24,20,.9);border:1px solid rgba(150,255,180,.4);border-radius:999px;padding:5px 10px 5px 8px;display:flex;gap:7px;align-items:center;white-space:nowrap}
 .cluster .tag b{width:7px;height:7px;border-radius:50%;background:var(--acid)}
 /* marquee */
-.wall{margin:30px -20px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg2)}
-.track{display:flex;gap:14px;width:max-content;animation:mq 60s linear infinite}.wall:hover .track{animation-play-state:paused}
+.wall{width:100vw;margin:30px 0 0 calc(50% - 50vw);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg2)}
+.track{display:flex;width:max-content;animation:mq 70s linear infinite;will-change:transform}.wall:hover .track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
-.chip{display:flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:13px;white-space:nowrap}
+.chip{display:flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;margin-right:14px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:13px;white-space:nowrap;transition:border-color .2s,background .2s}.chip:hover{border-color:rgba(150,255,180,.5);background:rgba(150,255,180,.06)}
 .chip .av{width:28px;height:28px;border-radius:50%;background:#12251f center/cover}.chip .av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .chip .f{font:12px JetBrains Mono,monospace;color:var(--mute)}
 /* section heads */
@@ -105,7 +104,13 @@ details{border-top:1px solid var(--line);padding:12px 0}details summary{cursor:p
 footer{margin:60px 0 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:13px;border-top:1px solid var(--line);padding-top:24px}
 footer a:hover{color:var(--mint)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--acid);color:#03150a;padding:10px 16px;border-radius:999px;font-weight:600;transition:.25s;z-index:99;pointer-events:none}.toast.on{opacity:1;transform:translateX(-50%)}
-.rv{opacity:0;transform:translateY(14px);transition:.6s}.rv.vis{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}.rv.vis{opacity:1;transform:none}
+body{animation:pagein .6s ease both}@keyframes pagein{from{opacity:0}}
+.av img{opacity:0;transition:opacity .5s}.av img.ok{opacity:1}
+.row{transition:background .2s}.row:not(.head):hover{background:rgba(150,255,180,.04)}
+#rows.sw{animation:rows .35s ease}@keyframes rows{from{opacity:0;transform:translateY(6px)}}
+.cluster .av{opacity:0;transform:translate(-50%,-50%) scale(.8)}.cluster .av.on{opacity:1;transform:translate(-50%,-50%) scale(1)}.cluster .av:hover{transform:translate(-50%,-50%) scale(1.07)!important}
+.cluster .av{transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:50px}.cluster{height:300px}.row{grid-template-columns:28px 1.6fr 1fr 1fr 110px}.row .c4,.row .c5{display:none}.week,.launch,.rule{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.token{grid-template-columns:1fr}.nav .srch,.nav a.l.opt{display:none}}
 @media(max-width:560px){.row{grid-template-columns:24px 1.5fr 1fr 90px}.row .c3{display:none}.steps{grid-template-columns:1fr}}
 </style>
@@ -121,8 +126,7 @@ footer a:hover{color:var(--mint)}
 <main class="wrap" id="top">
 <section class="hero">
   <div>
-    <span class="eyebrow"><b></b> new launch · robinhood chain</span>
-    <h1>Every creator<br>is a <em>coin.</em></h1>
+        <h1>Every creator<br>is a <em>coin.</em></h1>
     <p class="lead">Launch a coin on any creator on X. Every trade pays a 1% fee; the creator's 70% share goes to the views vault, and every week the vault pays the holders of the creator whose post got the most views. Read live from X. No invented numbers.</p>
     <div class="cta"><a class="btn fill" href="#launch">Launch a creator</a><a class="btn line" href="#creators">See the board</a></div>
     <div class="under" id="stat">reading X…</div>
@@ -214,7 +218,7 @@ const $=s=>document.querySelector(s);
 const fmt=n=>n==null?'—':n>=1e9?(n/1e9).toFixed(2)+'B':n>=1e6?(n/1e6).toFixed(n>=1e7?1:2)+'M':n>=1e3?(n/1e3).toFixed(n>=1e5?0:1)+'K':String(n);
 const usd=n=>n==null?'—':'$'+fmt(Math.round(n));
 const SIL='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#12251f"/><circle cx="50" cy="38" r="18" fill="#2c5a48"/><path d="M14 100c4-24 18-36 36-36s32 12 36 36z" fill="#2c5a48"/></svg>');
-const avEl=(src,cls='av')=>{const d=document.createElement('div');d.className=cls;const i=new Image();i.referrerPolicy='no-referrer';i.src=src||SIL;i.onerror=()=>{i.src=SIL};d.appendChild(i);return d};
+const avEl=(src,cls='av',h)=>{const d=document.createElement('div');d.className=cls;const i=new Image();i.referrerPolicy='no-referrer';i.decoding='async';let step=0;i.onload=()=>i.classList.add('ok');i.onerror=()=>{step++;if(step===1&&h)i.src='/api/avatar?h='+encodeURIComponent(h);else i.src=SIL};i.src=src||(h?'/api/avatar?h='+encodeURIComponent(h):SIL);d.appendChild(i);return d};
 const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1800)};
 const copy=async t=>{try{await navigator.clipboard.writeText(t);toast('Copied')}catch(e){prompt('Copy:',t)}};
 const cache={};
@@ -231,12 +235,12 @@ async function boot(){
   render();
   await Promise.all(LIST.map(async c=>{c.x=await readHandle(c.handle);if(c.ca)c.coin=await readCoin(c.ca);if(c.post)c.post_=await readTweet(c.post);}));
   render();cluster();wall();week();
-  const tot=LIST.reduce((a,c)=>a+(c.x?.followers||0),0);$('#stat').textContent=`${LIST.length} creators on the board · ${fmt(tot)} followers read live from X · ${LIST.filter(c=>c.ca).length} with a coin`;
+  const ok=LIST.filter(c=>c.x?.exists!==false);const tot=ok.reduce((a,c)=>a+(c.x?.followers||0),0);let t0=performance.now();const tick=()=>{const p=Math.min(1,(performance.now()-t0)/1200),e=1-Math.pow(1-p,3);$('#stat').textContent=`${ok.length} creators on the board · ${fmt(Math.round(tot*e))} followers read live from X · ${ok.filter(c=>c.ca).length} with a coin`;if(p<1)requestAnimationFrame(tick)};tick();
 }
 let SORT='followers';
 function render(){
   const rows=$('#rows');rows.innerHTML='';
-  let L=[...LIST];
+  let L=[...LIST].filter(c=>c.x?.exists!==false);
   if(SORT==='coin')L=L.filter(c=>c.ca);
   const key={followers:c=>c.x?.followers||0,views:c=>c.post_?.views||0,mcap:c=>c.coin?.marketCap||0,coin:c=>c.coin?.marketCap||c.x?.followers||0}[SORT];
   L.sort((a,b)=>key(b)-key(a));
@@ -244,7 +248,7 @@ function render(){
   if(!L.length){rows.innerHTML='<div class="empty">No creator coin on chain yet. The first one to launch tops this list.</div>';return}
   L.forEach((c,i)=>{
     const r=document.createElement('div');r.className='row';
-    const who=document.createElement('div');who.className='who';who.appendChild(avEl(c.x?.avatar));
+    const who=document.createElement('div');who.className='who';who.appendChild(avEl(c.x?.avatar,'av',c.handle));
     const t=document.createElement('div');t.innerHTML=`<div class="nm">${esc(c.x?.name||c.handle)}${c.x?.verified?' <span style="color:var(--mint)">✓</span>':''}</div><div class="h"><a href="https://x.com/${esc(c.handle)}" target="_blank" rel="noopener">@${esc(c.handle)}</a></div>`;who.appendChild(t);
     const st=c.ca?(c.coin?.marketCap?'<span class="st live"><b></b>live</span>':'<span class="st">on chain</span>'):(c.x?.exists===false?'<span class="st">no such account</span>':'<span class="st">no coin yet</span>');
     r.innerHTML=`<span class="rk">${i+1}</span>`;r.appendChild(who);
@@ -256,7 +260,7 @@ function render(){
   });
 }
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-$('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;[...$('#tabs').children].forEach(x=>x.classList.toggle('on',x===b));SORT=b.dataset.k;render()};
+$('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;[...$('#tabs').children].forEach(x=>x.classList.toggle('on',x===b));SORT=b.dataset.k;const R=$('#rows');R.classList.remove('sw');void R.offsetWidth;R.classList.add('sw');render()};
 $('#addb').onclick=add;$('#addh').onkeydown=e=>{if(e.key==='Enter')add()};
 async function add(){const h=$('#addh').value.trim().replace(/^@/,'');if(!/^[A-Za-z0-9_]{1,15}$/.test(h))return toast('Not a handle');
   if(LIST.some(c=>c.handle.toLowerCase()===h.toLowerCase()))return toast('Already on the board');
@@ -270,17 +274,17 @@ document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.t
 function cluster(){
   const el=$('#cluster');el.innerHTML='';const top=[...LIST].filter(c=>c.x?.avatar).sort((a,b)=>(b.x.followers||0)-(a.x.followers||0)).slice(0,8);
   const pos=[[54,8,140],[78,38,110],[22,30,96],[66,68,88],[8,66,76],[40,52,72],[90,8,64],[30,86,58]];
-  top.forEach((c,i)=>{const [x,y,s]=pos[i];const a=avEl(c.x.avatar);a.style.cssText=`left:${x}%;top:${y}%;width:${s}px;height:${s}px;transform:translate(-50%,-50%)`;a.title='@'+c.handle;a.onclick=()=>window.open('https://x.com/'+c.handle);el.appendChild(a)});
+  top.forEach((c,i)=>{const [x,y,s]=pos[i];const a=avEl(c.x.avatar,'av',c.handle);a.style.cssText=`left:${x}%;top:${y}%;width:${s}px;height:${s}px;transform:translate(-50%,-50%)`;a.title='@'+c.handle;a.onclick=()=>window.open('https://x.com/'+c.handle);el.appendChild(a);setTimeout(()=>a.classList.add('on'),80*i)});
   const t=top[0];if(t){const g=document.createElement('div');g.className='tag';g.style.cssText='left:50%;top:0;transform:translateX(-40%)';g.innerHTML=`<b></b>@${esc(t.handle)} · ${fmt(t.x.followers)} followers`;el.appendChild(g)}
   const w=top.find(c=>c.post_?.views);const g2=document.createElement('div');g2.className='tag';g2.style.cssText='left:6%;bottom:2%';g2.innerHTML=w?`<b></b>${fmt(w.post_.views)} views this week · @${esc(w.handle)}`:`<b></b>views race opens at the first launch`;el.appendChild(g2);
 }
-function wall(){const tr=$('#track');tr.innerHTML='';const L=[...LIST].filter(c=>c.x?.exists!==false);const mk=c=>{const d=document.createElement('a');d.className='chip';d.href='https://x.com/'+c.handle;d.target='_blank';d.rel='noopener';d.appendChild(avEl(c.x?.avatar));d.insertAdjacentHTML('beforeend',`<span>@${esc(c.handle)}</span><span class="f">${fmt(c.x?.followers)}</span>`);return d};[...L,...L].forEach(c=>tr.appendChild(mk(c)));}
+function wall(){const tr=$('#track');tr.innerHTML='';const L=[...LIST].filter(c=>c.x?.exists!==false);const mk=c=>{const d=document.createElement('a');d.className='chip';d.href='https://x.com/'+c.handle;d.target='_blank';d.rel='noopener';d.appendChild(avEl(c.x?.avatar,'av',c.handle));d.insertAdjacentHTML('beforeend',`<span>@${esc(c.handle)}</span><span class="f">${fmt(c.x?.followers)}</span>`);return d};[...L,...L].forEach(c=>tr.appendChild(mk(c)));}
 function week(){
   const inc=LIST.reduce((a,c)=>a+(c.coin?.feeIncome24||0),0);const has=LIST.some(c=>c.coin?.volume24!=null);
   $('#vault').firstChild.textContent=has?usd(inc*7)+' ':'— ';$('#vaultsub').textContent=has?'≈ 7 × today\'s fee income across every creator coin (Dexscreener h24 × 0.7%)':'no coin on chain yet · the vault starts at the first launch';
   const now=new Date();const day=(now.getUTCDay()+6)%7;const p=(day*24+now.getUTCHours())/168;$('#wbar').style.width=(p*100).toFixed(1)+'%';$('#wleft').textContent=`week ${Math.round(p*100)}% through · pays Sunday 00:00 UTC`;
   const R=LIST.filter(c=>c.post_?.exists).sort((a,b)=>(b.post_.views||0)-(a.post_.views||0));if(!R.length)return;
-  const el=$('#race');el.innerHTML='';R.forEach((c,i)=>{const r=document.createElement('div');r.className='r';r.appendChild(avEl(c.x?.avatar));r.insertAdjacentHTML('beforeend',`<div><div style="font-weight:600">@${esc(c.handle)}</div><div class="under" style="margin:0"><a href="${esc(c.post_.url)}" target="_blank" rel="noopener">post ↗</a></div></div><div class="num">${fmt(c.post_.views)}<span class="dim" style="font-size:11px"> views</span></div>`);el.appendChild(r)});
+  const el=$('#race');el.innerHTML='';R.forEach((c,i)=>{const r=document.createElement('div');r.className='r';r.appendChild(avEl(c.x?.avatar,'av',c.handle));r.insertAdjacentHTML('beforeend',`<div><div style="font-weight:600">@${esc(c.handle)}</div><div class="under" style="margin:0"><a href="${esc(c.post_.url)}" target="_blank" rel="noopener">post ↗</a></div></div><div class="num">${fmt(c.post_.views)}<span class="dim" style="font-size:11px"> views</span></div>`);el.appendChild(r)});
 }
 /* launch form */
 let LX=null,deb;
@@ -288,7 +292,7 @@ $('#lh').addEventListener('input',()=>{clearTimeout(deb);const h=$('#lh').value.
   if(!/^[A-Za-z0-9_]{1,15}$/.test(h))return;deb=setTimeout(async()=>{const x=await readHandle(h);if($('#lh').value.trim().replace(/^@/,'')!==h)return;const e=$('#lchk');e.innerHTML='';
     if(x.exists===false){e.textContent='No account @'+h+' on X.';return}
     if(x.exists===null){e.textContent='Could not read X right now — try again in a moment.';return}
-    LX=x;e.appendChild(avEl(x.avatar));e.insertAdjacentHTML('beforeend',`<div><div style="color:var(--ink);font-weight:600">${esc(x.name)}${x.verified?' <span style="color:var(--mint)">✓</span>':''}</div><div class="under" style="margin:0">@${esc(x.handle)} · ${fmt(x.followers)} followers</div></div>`);
+    LX=x;e.appendChild(avEl(x.avatar,'av',x.handle));e.insertAdjacentHTML('beforeend',`<div><div style="color:var(--ink);font-weight:600">${esc(x.name)}${x.verified?' <span style="color:var(--mint)">✓</span>':''}</div><div class="under" style="margin:0">@${esc(x.handle)} · ${fmt(x.followers)} followers</div></div>`);
     if(!$('#lt').dataset.touched)$('#lt').value=x.handle.replace(/[^A-Za-z0-9]/g,'').toUpperCase().slice(0,8);descr()},450)});
 $('#lt').oninput=()=>{$('#lt').dataset.touched=1;descr()};
 function descr(){const h=$('#lh').value.trim().replace(/^@/,'');const t=$('#lt').value.trim().toUpperCase()||(h.toUpperCase().slice(0,8));if(!h){$('#ldesc').textContent='—';return}
